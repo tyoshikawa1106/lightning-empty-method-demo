@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <!-- attribute -->
+    <aura:attribute name="input" type="String" />
+    <!-- components -->
+	<div class="components">
+        <div class="inputFields">
+        	<ui:inputText aura:Id="ui-inputText" value="{!v.input}" placeholder="Input Text" />
+        </div>
+        <div>
+            <!-- Null -->
+            <aura:if isTrue="{! empty(v.input)}">
+                <ui:message title="Warning" severity="warning" closable="false">
+                    <ui:outputText value="Please enter a value" />
+                </ui:message>
+            </aura:if>
+            <!-- Not Null -->
+            <aura:if isTrue="{! !empty(v.input)}">
+                <ui:message title="Info" severity="info" closable="false">
+                    <ui:outputText value="Thanks!" />
+                </ui:message>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>
